@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "162618921399",
+    "firebase_url": "https://waroll-48897.firebaseio.com",
+    "project_id": "waroll-48897",
+    "storage_bucket": "waroll-48897.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162618921399:android:fc9e6d3ff61d4752",
+        "android_client_info": {
+          "package_name": "ru.timuruktus.waroll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162618921399-dfv8l11rd3jh4dahh3hcv2sq4erqs5pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPZzOFcMj82irL8E0W_zBb6tDWoGV9V5E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162618921399-dfv8l11rd3jh4dahh3hcv2sq4erqs5pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
