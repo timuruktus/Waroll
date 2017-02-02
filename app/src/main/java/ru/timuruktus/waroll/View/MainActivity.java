@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.left_reg) {
-            EventBus.getDefault().post(new OnLeftMenuClick(OnLeftMenuClick.MenuClick.REGISTRATION));
+            EventBus.getDefault().post(new OnLeftMenuClick(OnLeftMenuClick.MenuClick.JOIN));
         } else if (id == R.id.nav_manage) {
 
         }

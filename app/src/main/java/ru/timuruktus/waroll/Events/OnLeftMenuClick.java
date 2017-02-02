@@ -6,7 +6,7 @@ public class OnLeftMenuClick {
     public MenuClick menuClick;
 
     public enum MenuClick{
-        REGISTRATION
+        JOIN
     }
 
     public OnLeftMenuClick(MenuClick menuClick){
