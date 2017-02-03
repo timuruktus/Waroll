@@ -4,6 +4,7 @@ package ru.timuruktus.waroll.Presenter;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import ru.timuruktus.waroll.Events.OnLeftMenuClick;
@@ -17,6 +18,7 @@ public class MainActivityPresenter {
 
     public MainActivityPresenter(MainActivity mainActivity){
         this.mainActivity = mainActivity;
+        EventBus.getDefault().register(this);
     }
 
     @Subscribe
@@ -26,8 +28,9 @@ public class MainActivityPresenter {
         if(onLeftMenuClick.menuClick == OnLeftMenuClick.MenuClick.JOIN){
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.replace(R.id.fragmentContainer, new JoinFragment());
-
         }
         fragmentTransaction.commit();
     }
+
+
 }

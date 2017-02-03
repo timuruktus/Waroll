@@ -30,5 +30,8 @@ dependencies {
     compile 'com.google.firebase:firebase-config:10.0.1'
     compile 'com.google.firebase:firebase-storage:10.0.1'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.slider:library:1.1.5@aar'
 }
 apply plugin: 'com.google.gms.google-services'

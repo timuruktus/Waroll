@@ -1,5 +1,8 @@
 package ru.timuruktus.waroll.View;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,19 +32,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        EventBus.getDefault().register(this);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        initAllListeners();
+        loadFragment();
+        //EventBus.getDefault().register(this);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -103,11 +99,20 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onDestroy(){
-        EventBus.getDefault().unregister(this);
+        //EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 
     private void initAllListeners(){
-        new MainActivityPresenter(this);
+        MainActivityPresenter mainActivityPresenter = new MainActivityPresenter(this);
     }
+
+    private void loadFragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ru.timuruktus.waroll.View.Fragments.MainFragment mainFragment = new ru.timuruktus.waroll.View.Fragments.MainFragment();
+        fragmentTransaction.replace(R.id.fragmentContainer, mainFragment);
+        fragmentTransaction.commit();
+    }
+
 }

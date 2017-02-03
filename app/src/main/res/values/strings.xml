@@ -8,4 +8,16 @@
 
     // [LEFT MENU]
     <string name="left_reg">Зарегистрироваться</string>
+
+    // [FOR JOIN FRAGMENT]
+    <string name="join_email">Ваша почта:</string>
+    <string name="join_pass">Ваш пароль:</string>
+    <string name="join_join">Войти</string>
+    <string name="join_reg">Зарегистрироваться</string>
+
+    // [FOR REG FRAGMENT]
+    <string name="reg_topic">Зарегистрироваться</string>
+    <string name="reg_login">Ваш будущий логин:</string>
+
+
 </resources>
