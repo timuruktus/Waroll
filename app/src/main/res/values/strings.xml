@@ -16,8 +16,9 @@
     <string name="join_reg">Зарегистрироваться</string>
 
     // [FOR REG FRAGMENT]
-    <string name="reg_topic">Зарегистрироваться</string>
-    <string name="reg_login">Ваш будущий логин:</string>
+    <string name="reg_topic">Регистрация</string>
+    <string name="reg_1_email">Для начала, введите вашу почту :)</string>
+    <string name="reg_1_back">Назад</string>
 
 
 </resources>
