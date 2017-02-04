@@ -5,21 +5,21 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.daimajia.slider.library.Indicators.PagerIndicator;
-import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
+import ru.timuruktus.waroll.Events.ChangeToolbarTitle;
+import ru.timuruktus.waroll.Events.OnFragmentReplace;
+import ru.timuruktus.waroll.Events.OnJoinFragClick;
 import ru.timuruktus.waroll.Model.ExtendedSliderLayout;
 import ru.timuruktus.waroll.R;
 
@@ -27,6 +27,7 @@ public class JoinFragment extends Fragment implements View.OnClickListener{
 
     private View rootView;
     private ExtendedSliderLayout imageSlider;
+    private Button join,reg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,13 +36,25 @@ public class JoinFragment extends Fragment implements View.OnClickListener{
         rootView =
                 inflater.inflate(R.layout.join_fragment, container, false);
         initImageSlider();
+
+        reg = (Button) rootView.findViewById(R.id.reg);
+        reg.setOnClickListener(this);
+        EventBus.getDefault().post(new ChangeToolbarTitle(this));
+
         return rootView;
     }
 
 
     @Override
     public void onClick(View v) {
-
+        int id = v.getId();
+        if(id == R.id.join){
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.JOIN));
+        }else if(id == R.id.reg){
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.REG));
+        }else if(id == R.id.forgottenPass){
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.PASS));
+        }
     }
 
     private void initImageSlider(){

@@ -22,9 +22,9 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:text="@string/join_email"
-        android:id="@+id/yourEmail"
+        android:id="@+id/joinEmailText"
         android:layout_below="@+id/companyLogo"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -36,16 +36,16 @@
         android:layout_height="45dp"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editEmail"
-        android:layout_below="@+id/yourEmail"
+        android:id="@+id/joinEmailEdit"
+        android:layout_below="@+id/joinEmailText"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:text="@string/join_pass"
-        android:id="@+id/yourPass"
-        android:layout_below="@+id/editEmail"
+        android:id="@+id/joinPassText"
+        android:layout_below="@+id/joinEmailEdit"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20dp"
@@ -56,30 +56,41 @@
         android:layout_height="45dp"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editPass"
-        android:layout_below="@+id/yourPass"
+        android:id="@+id/joinPassEdit"
+        android:layout_below="@+id/joinPassText"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/join_join"
-        android:id="@+id/join"
-        android:layout_below="@+id/editPass"
+        android:id="@+id/joinJoinBut"
+        android:layout_below="@+id/joinPassEdit"
         android:layout_centerHorizontal="true"
-        android:background="#3240d7"
         android:layout_marginLeft="100dp"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="@string/join_reg"
-        android:id="@+id/button"
+        android:id="@+id/joinRegBut"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="100dp"
         android:background="#e3e3e3"
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/join_forgot_pass"
+        android:id="@+id/forgottenPass"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

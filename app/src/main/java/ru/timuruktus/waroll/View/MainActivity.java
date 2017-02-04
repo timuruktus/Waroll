@@ -4,9 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,15 +15,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
-import ru.timuruktus.waroll.Events.OnLeftMenuClick;
+import ru.timuruktus.waroll.Events.OnFragmentReplace;
+import ru.timuruktus.waroll.Presenter.JoinFragmentPresenter;
 import ru.timuruktus.waroll.Presenter.MainActivityPresenter;
+import ru.timuruktus.waroll.Presenter.RegFragmentPresenter;
 import ru.timuruktus.waroll.R;
+import ru.timuruktus.waroll.View.Fragments.JoinFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private  Toolbar toolbar;
+    public  Toolbar toolbar;
     private DrawerLayout drawer;
 
     @Override
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         initAllListeners();
         loadFragment();
         //EventBus.getDefault().register(this);
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.left_reg) {
-            EventBus.getDefault().post(new OnLeftMenuClick(OnLeftMenuClick.MenuClick.JOIN));
+            EventBus.getDefault().post(new OnFragmentReplace(new JoinFragment(), true));
         } else if (id == R.id.nav_manage) {
 
         }
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity
 
     private void initAllListeners(){
         MainActivityPresenter mainActivityPresenter = new MainActivityPresenter(this);
+        JoinFragmentPresenter joinFragmentPresenter = new JoinFragmentPresenter(this);
+        RegFragmentPresenter regFragmentPresenter = new RegFragmentPresenter(this);
     }
 
     private void loadFragment(){
@@ -114,5 +119,7 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.fragmentContainer, mainFragment);
         fragmentTransaction.commit();
     }
+
+
 
 }

@@ -7,18 +7,27 @@
     <string name="action_settings">Settings</string>
 
     // [LEFT MENU]
-    <string name="left_reg">Зарегистрироваться</string>
+    <string name="left_reg">Войти</string>
 
     // [FOR JOIN FRAGMENT]
+    <string name="join_title">Вход</string>
     <string name="join_email">Ваша почта:</string>
     <string name="join_pass">Ваш пароль:</string>
     <string name="join_join">Войти</string>
-    <string name="join_reg">Зарегистрироваться</string>
+    <string name="join_reg">Регистрация</string>
+    <string name="join_forgot_pass">Я забыл пароль...</string>
 
     // [FOR REG FRAGMENT]
-    <string name="reg_topic">Регистрация</string>
-    <string name="reg_1_email">Для начала, введите вашу почту :)</string>
+    <string name="reg_1_topic">Регистрация</string>
     <string name="reg_1_back">Назад</string>
+    <string name="reg_1_email">Почта:</string>
+    <string name="reg_1_email_hint">Пожалуйста, введите корректную почту*</string>
+    <string name="reg_1_pass">Пароль:</string>
+    <string name="reg_1_pass_hint">Не менее 6 символов*</string>
+    <string name="reg_1_login">Логин:</string>
+    <string name="reg_1_hint">Поля, помеченные "*" обязательны</string>
+    <string name="reg_1_registration">Зарегистрироваться</string>
+
 
 
 </resources>
