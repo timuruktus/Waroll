@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reg_1_pass_hint"
+            android:text="@string/reg_1_login_hint"
             android:id="@+id/regLoginHint"
             android:layout_below="@+id/regLoginText"
             android:layout_alignStart="@+id/regLoginText" />
@@ -109,7 +109,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/editText3"
+            android:id="@+id/regLoginEdit"
             android:layout_below="@+id/regLoginHint"
             android:layout_alignParentStart="true" />
 

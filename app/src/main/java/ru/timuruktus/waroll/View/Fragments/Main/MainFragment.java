@@ -1,4 +1,4 @@
-package ru.timuruktus.waroll.View.Fragments;
+package ru.timuruktus.waroll.View.Fragments.Main;
 
 
 import android.app.Fragment;

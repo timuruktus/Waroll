@@ -4,7 +4,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,14 +14,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import ru.timuruktus.waroll.Events.OnFragmentReplace;
 import ru.timuruktus.waroll.Presenter.JoinFragmentPresenter;
 import ru.timuruktus.waroll.Presenter.MainActivityPresenter;
 import ru.timuruktus.waroll.Presenter.RegFragmentPresenter;
 import ru.timuruktus.waroll.R;
-import ru.timuruktus.waroll.View.Fragments.JoinFragment;
+import ru.timuruktus.waroll.View.Fragments.Join.JoinFragment;
+import ru.timuruktus.waroll.View.Fragments.Main.MainFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity
     private void loadFragment(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ru.timuruktus.waroll.View.Fragments.MainFragment mainFragment = new ru.timuruktus.waroll.View.Fragments.MainFragment();
+        MainFragment mainFragment = new MainFragment();
         fragmentTransaction.replace(R.id.fragmentContainer, mainFragment);
         fragmentTransaction.commit();
     }

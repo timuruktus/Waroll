@@ -27,6 +27,7 @@
     <string name="reg_1_login">Логин:</string>
     <string name="reg_1_hint">Поля, помеченные "*" обязательны</string>
     <string name="reg_1_registration">Зарегистрироваться</string>
+    <string name="reg_1_login_hint">Можете использовать любой язык*</string>
 
 
 

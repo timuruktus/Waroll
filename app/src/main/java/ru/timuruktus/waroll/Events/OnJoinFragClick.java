@@ -4,21 +4,21 @@ package ru.timuruktus.waroll.Events;
 public class OnJoinFragClick {
 
     /**
-     * USAGES:
+     * WHERE CATCHING:
      * JoinFragmentPresenter.java {public void onJoinFragClick}
      */
 
-    public Actions actions;
+    public JoinActions joinActions;
 
-    public enum Actions{
+    public enum JoinActions {
         REG,JOIN,PASS
     }
 
-    public OnJoinFragClick(Actions actions){
-        this.actions = actions;
+    public OnJoinFragClick(JoinActions joinActions){
+        this.joinActions = joinActions;
     }
 
-    public Actions getAction(){
-        return actions;
+    public JoinActions getAction(){
+        return joinActions;
     }
 }

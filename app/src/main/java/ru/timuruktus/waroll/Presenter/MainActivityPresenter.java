@@ -3,7 +3,6 @@ package ru.timuruktus.waroll.Presenter;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -11,9 +10,9 @@ import org.greenrobot.eventbus.Subscribe;
 import ru.timuruktus.waroll.Events.ChangeToolbarTitle;
 import ru.timuruktus.waroll.Events.OnFragmentReplace;
 import ru.timuruktus.waroll.R;
-import ru.timuruktus.waroll.View.Fragments.JoinFragment;
-import ru.timuruktus.waroll.View.Fragments.MainFragment;
-import ru.timuruktus.waroll.View.Fragments.RegFragment;
+import ru.timuruktus.waroll.View.Fragments.Join.JoinFragment;
+import ru.timuruktus.waroll.View.Fragments.Main.MainFragment;
+import ru.timuruktus.waroll.View.Fragments.Reg.RegFragment;
 import ru.timuruktus.waroll.View.MainActivity;
 
 public class MainActivityPresenter {

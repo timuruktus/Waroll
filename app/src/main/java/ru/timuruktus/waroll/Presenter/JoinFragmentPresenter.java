@@ -9,7 +9,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import ru.timuruktus.waroll.Events.OnJoinFragClick;
 import ru.timuruktus.waroll.R;
-import ru.timuruktus.waroll.View.Fragments.RegFragment;
+import ru.timuruktus.waroll.View.Fragments.Reg.RegFragment;
 import ru.timuruktus.waroll.View.MainActivity;
 
 public class JoinFragmentPresenter {
@@ -25,12 +25,12 @@ public class JoinFragmentPresenter {
     public void onJoinFragClick(OnJoinFragClick onJoinFragClick){
         FragmentManager fragmentManager = mainActivity.getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if(onJoinFragClick.getAction() == OnJoinFragClick.Actions.REG){
+        if(onJoinFragClick.getAction() == OnJoinFragClick.JoinActions.REG){
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.replace(R.id.fragmentContainer, new RegFragment());
-        }else if(onJoinFragClick.getAction() == OnJoinFragClick.Actions.JOIN){
+        }else if(onJoinFragClick.getAction() == OnJoinFragClick.JoinActions.JOIN){
 
-        }else if(onJoinFragClick.getAction() == OnJoinFragClick.Actions.PASS) {
+        }else if(onJoinFragClick.getAction() == OnJoinFragClick.JoinActions.PASS) {
 
         }
         fragmentTransaction.commit();

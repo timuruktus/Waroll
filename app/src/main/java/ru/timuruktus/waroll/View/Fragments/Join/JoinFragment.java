@@ -1,4 +1,4 @@
-package ru.timuruktus.waroll.View.Fragments;
+package ru.timuruktus.waroll.View.Fragments.Join;
 
 
 import android.app.Fragment;
@@ -18,7 +18,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 
 import ru.timuruktus.waroll.Events.ChangeToolbarTitle;
-import ru.timuruktus.waroll.Events.OnFragmentReplace;
 import ru.timuruktus.waroll.Events.OnJoinFragClick;
 import ru.timuruktus.waroll.Model.ExtendedSliderLayout;
 import ru.timuruktus.waroll.R;
@@ -49,11 +48,11 @@ public class JoinFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         int id = v.getId();
         if(id == R.id.join){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.JOIN));
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.JOIN));
         }else if(id == R.id.reg){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.REG));
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.REG));
         }else if(id == R.id.forgottenPass){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.Actions.PASS));
+            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.PASS));
         }
     }
 
