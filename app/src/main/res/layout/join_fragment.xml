@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/slider" />
 
-    <ru.timuruktus.waroll.Model.ExtendedSliderLayout
+    <ru.timuruktus.waroll.ExtendedDefaultClasses.ExtendedSliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/join_forgot_pass"
-        android:id="@+id/forgottenPass"
+        android:id="@+id/joinForgottenPass"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryDark"

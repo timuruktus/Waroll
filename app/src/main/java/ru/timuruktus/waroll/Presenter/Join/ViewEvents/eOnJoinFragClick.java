@@ -1,7 +1,7 @@
-package ru.timuruktus.waroll.Events;
+package ru.timuruktus.waroll.Presenter.Join.ViewEvents;
 
 
-public class OnJoinFragClick {
+public class EOnJoinFragClick {
 
     /**
      * WHERE CATCHING:
@@ -14,7 +14,7 @@ public class OnJoinFragClick {
         REG,JOIN,PASS
     }
 
-    public OnJoinFragClick(JoinActions joinActions){
+    public EOnJoinFragClick(JoinActions joinActions){
         this.joinActions = joinActions;
     }
 

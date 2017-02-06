@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import org.greenrobot.eventbus.EventBus;
 
-import ru.timuruktus.waroll.Events.ChangeToolbarTitle;
+import ru.timuruktus.waroll.Presenter.MainActivity.ViewEvents.EChangeToolbarTitle;
 import ru.timuruktus.waroll.R;
 
 public class MainFragment extends Fragment {
@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
         rootView =
                 inflater.inflate(R.layout.main_fragment, container, false);
 
-        EventBus.getDefault().post(new ChangeToolbarTitle(this));
+        EventBus.getDefault().post(new EChangeToolbarTitle(this));
 
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

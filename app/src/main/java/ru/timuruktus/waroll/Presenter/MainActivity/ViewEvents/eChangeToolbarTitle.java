@@ -1,8 +1,8 @@
-package ru.timuruktus.waroll.Events;
+package ru.timuruktus.waroll.Presenter.MainActivity.ViewEvents;
 
 import android.app.Fragment;
 
-public class ChangeToolbarTitle {
+public class EChangeToolbarTitle {
 
     /**
      * WHERE CATCHING:
@@ -11,7 +11,7 @@ public class ChangeToolbarTitle {
 
     public Fragment fragment;
 
-    public ChangeToolbarTitle(Fragment fragment){
+    public EChangeToolbarTitle(Fragment fragment){
         this.fragment = fragment;
     }
 }

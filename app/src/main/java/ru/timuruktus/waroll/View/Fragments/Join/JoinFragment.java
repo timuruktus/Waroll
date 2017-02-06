@@ -17,9 +17,9 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
-import ru.timuruktus.waroll.Events.ChangeToolbarTitle;
-import ru.timuruktus.waroll.Events.OnJoinFragClick;
-import ru.timuruktus.waroll.Model.ExtendedSliderLayout;
+import ru.timuruktus.waroll.Presenter.MainActivity.ViewEvents.EChangeToolbarTitle;
+import ru.timuruktus.waroll.Presenter.Join.ViewEvents.EOnJoinFragClick;
+import ru.timuruktus.waroll.ExtendedDefaultClasses.ExtendedSliderLayout;
 import ru.timuruktus.waroll.R;
 
 public class JoinFragment extends Fragment implements View.OnClickListener{
@@ -36,9 +36,9 @@ public class JoinFragment extends Fragment implements View.OnClickListener{
                 inflater.inflate(R.layout.join_fragment, container, false);
         initImageSlider();
 
-        reg = (Button) rootView.findViewById(R.id.reg);
+        reg = (Button) rootView.findViewById(R.id.joinRegBut);
         reg.setOnClickListener(this);
-        EventBus.getDefault().post(new ChangeToolbarTitle(this));
+        EventBus.getDefault().post(new EChangeToolbarTitle(this));
 
         return rootView;
     }
@@ -47,15 +47,18 @@ public class JoinFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if(id == R.id.join){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.JOIN));
-        }else if(id == R.id.reg){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.REG));
-        }else if(id == R.id.forgottenPass){
-            EventBus.getDefault().post(new OnJoinFragClick(OnJoinFragClick.JoinActions.PASS));
+        if(id == R.id.joinJoinBut){
+            EventBus.getDefault().post(new EOnJoinFragClick(EOnJoinFragClick.JoinActions.JOIN));
+        }else if(id == R.id.joinRegBut){
+            EventBus.getDefault().post(new EOnJoinFragClick(EOnJoinFragClick.JoinActions.REG));
+        }else if(id == R.id.joinForgottenPass){
+            EventBus.getDefault().post(new EOnJoinFragClick(EOnJoinFragClick.JoinActions.PASS));
         }
     }
 
+    /**
+     * Configurates imageSlider
+     */
     private void initImageSlider(){
         imageSlider = (ExtendedSliderLayout) rootView.findViewById(R.id.slider);
 

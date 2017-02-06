@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Waroll</string>
+    <string name="error">Ошибка</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -17,7 +18,7 @@
     <string name="join_reg">Регистрация</string>
     <string name="join_forgot_pass">Я забыл пароль...</string>
 
-    // [FOR REG FRAGMENT]
+    // [FOR REG 1 FRAGMENT]
     <string name="reg_1_topic">Регистрация</string>
     <string name="reg_1_back">Назад</string>
     <string name="reg_1_email">Почта:</string>
@@ -28,6 +29,21 @@
     <string name="reg_1_hint">Поля, помеченные "*" обязательны</string>
     <string name="reg_1_registration">Зарегистрироваться</string>
     <string name="reg_1_login_hint">Можете использовать любой язык*</string>
+    {REG 1 ERRORS}
+    <string name="reg_1_pass_error">Вы ввели неподходящий пароль</string>
+
+    // [FOR REG 2 FRAGMENT]
+    <string name="reg_2_choose">Выбрать картинку</string>
+    <string name="reg_2_confirm">Подтвердить</string>
+    <string name="reg_2_message_text">Выберите как загружать картинку:</string>
+    <string name="reg_2_message_title">Выберите..</string>
+    <string name="reg_2_message_link">URL ссылкой</string>
+    <string name="reg_2_message_upload">Загрузить</string>
+    <string name="reg_2_image_error">Вы не выбрали изображение</string>
+
+    // [FOR REG 2 DIALOG LAYOUT]
+    <string name="reg_2_dialog_layout_text">Вставьте ссылку на изображение</string>
+    <string name="reg_2_dialog_didnt_choose_img">Вы не выбрали изображение!</string>
 
 
 

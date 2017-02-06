@@ -1,4 +1,4 @@
-package ru.timuruktus.waroll.View.Fragments.Reg;
+package ru.timuruktus.waroll.View.Fragments.Reg1;
 
 public class RegLoadingEvent {
 

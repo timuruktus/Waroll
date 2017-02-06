@@ -1,4 +1,4 @@
-package ru.timuruktus.waroll.Model;
+package ru.timuruktus.waroll.ExtendedDefaultClasses;
 
 
 import android.content.Context;

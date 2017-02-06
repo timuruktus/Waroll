@@ -15,10 +15,11 @@ import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
 
-import ru.timuruktus.waroll.Events.OnFragmentReplace;
-import ru.timuruktus.waroll.Presenter.JoinFragmentPresenter;
-import ru.timuruktus.waroll.Presenter.MainActivityPresenter;
-import ru.timuruktus.waroll.Presenter.RegFragmentPresenter;
+import ru.timuruktus.waroll.Model.Auth;
+import ru.timuruktus.waroll.Presenter.MainActivity.ViewEvents.EReplaceFragment;
+import ru.timuruktus.waroll.Presenter.Join.JoinFragmentPresenter;
+import ru.timuruktus.waroll.Presenter.MainActivity.MainActivityPresenter;
+import ru.timuruktus.waroll.Presenter.Reg1.RegFragmentPresenter;
 import ru.timuruktus.waroll.R;
 import ru.timuruktus.waroll.View.Fragments.Join.JoinFragment;
 import ru.timuruktus.waroll.View.Fragments.Main.MainFragment;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.left_reg) {
-            EventBus.getDefault().post(new OnFragmentReplace(new JoinFragment(), true));
+            EventBus.getDefault().post(new EReplaceFragment(new JoinFragment(), true));
         } else if (id == R.id.nav_manage) {
 
         }
@@ -105,12 +106,19 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
     }
 
+    /**
+     * Initialise all EventBus's listeners in application
+     */
     private void initAllListeners(){
         MainActivityPresenter mainActivityPresenter = new MainActivityPresenter(this);
         JoinFragmentPresenter joinFragmentPresenter = new JoinFragmentPresenter(this);
         RegFragmentPresenter regFragmentPresenter = new RegFragmentPresenter(this);
+        Auth auth = new Auth();
     }
 
+    /**
+     * Load first fragment
+     */
     private void loadFragment(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
