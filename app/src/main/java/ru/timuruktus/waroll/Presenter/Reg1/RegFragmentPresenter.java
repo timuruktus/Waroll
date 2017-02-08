@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.greenrobot.eventbus.EventBus;
@@ -46,7 +47,9 @@ public class RegFragmentPresenter {
         if(eOnRegFragClick.action == EOnRegFragClick.RegActions.REG){
             EventBus.getDefault().post(new RegLoadingEvent(true));
             regData = eOnRegFragClick.regData;
-            validateLogin(eOnRegFragClick.regData.get("login"));
+            if(validate()) {
+                validateLogin(eOnRegFragClick.regData.get("login"));
+            }
         }
     }
 
@@ -88,32 +91,19 @@ public class RegFragmentPresenter {
      * @param login- user login
      */
     private void validateLogin(String login){
-        if(login == "" || login == null){
-            Log.d("tag", "login is empty");
-            postAnError(RegDataError.RegWrong.LOGIN);
-            return;
-        }
         final String _login = login;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Logins");
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        Query checkLoginExists = mDatabase.child("Accounts").equalTo(_login, "Username");
+        checkLoginExists.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<ArrayList<String>> temp = new GenericTypeIndicator<ArrayList<String>>() {
-                };
-                ArrayList<String> usernames = dataSnapshot.getValue(temp);
-                for (String currentUsername : usernames) {
-                    Log.d("tag", "RegFragmentPresenter: onDataChange. Username = " + currentUsername);
-                    if (_login.equals(currentUsername)) {
-                        postAnError(RegDataError.RegWrong.LOGIN_EXISTS);
-                        return;
-                    }
-                }
-                if (validate()) {
-                    EventBus.getDefault().post(new EPrepareRegister(regData));
-                    EventBus.getDefault().post(new RegLoadingEvent(false));
-                    EventBus.getDefault().post(new EReplaceFragment(new Reg2Fragment(), true));
+                if(!dataSnapshot.exists()) {
+                        EventBus.getDefault().post(new EPrepareRegister(regData));
+                        EventBus.getDefault().post(new RegLoadingEvent(false));
+                        EventBus.getDefault().post(new EReplaceFragment(new Reg2Fragment(), true));
+                }else{
+                    postAnError(RegDataError.RegWrong.LOGIN_EXISTS);
                 }
             }
 

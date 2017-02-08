@@ -7,4 +7,6 @@ public class Reg2FragmentPresenter {
 
 
 
+
+
 }

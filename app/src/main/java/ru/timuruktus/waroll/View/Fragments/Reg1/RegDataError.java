@@ -9,7 +9,7 @@ public class RegDataError {
      * application, which can affect RegFragment
      */
     public enum RegWrong {
-        PASS,EMAIL,LOGIN,EMPTY_FIELD,OTHER,LOGIN_EXISTS
+        PASS,EMAIL,EMPTY_FIELD,OTHER,LOGIN_EXISTS
     }
 
     public RegDataError(RegWrong regWrong){

@@ -40,7 +40,7 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
     private Bitmap localImg = null;
     private String urlToImage;
     private static final int REQUEST = 1;
-    private ImageView userImage;
+    private ImageView userImage = null;
     private Button reg2ButChoose, reg2ButConfirm;
 
     @Override
@@ -48,7 +48,7 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rootView =
-                inflater.inflate(R.layout.reg_1_fragment, container, false);
+                inflater.inflate(R.layout.reg_2_fragment, container, false);
 
         userImage = (ImageView) rootView.findViewById(R.id.userImage);
         reg2ButChoose = (Button) rootView.findViewById(R.id.reg2ButChoose);
@@ -83,13 +83,13 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
             builder.create();
             builder.show();
         } else if(id == R.id.reg2ButConfirm){
-            if(urlToImage.equals("")) Log.d("tag", "urlToImage == \"\"");
-            if(urlToImage == null) Log.d("tag", "urlToImage == null");
-            if(urlToImage.equals("") || urlToImage == null || localImg == null){
+            if((urlToImage == null || urlToImage.equals("")) && localImg == null){
                 Toast.makeText(this.getActivity(), R.string.reg_2_image_error, Toast.LENGTH_SHORT).show();
-            }else if((urlToImage.equals("") || urlToImage == null) && localImg != null){
+            }else if((urlToImage == null || urlToImage.equals("")) && localImg != null){
                 showLoading(true);
                 loadImageToServer();
+            }else if((localImg == null || localImg.equals("")) && urlToImage != null){
+                // TODO Здесь отправляется ивент на создание аккаунте в Auth
             }
         }
     }
@@ -108,6 +108,7 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
                     public void onClick(DialogInterface dialog, int id) {
                         EditText et = (EditText) view.findViewById(R.id.push_url_link);
                         urlToImage = et.getText().toString();
+                        if(urlToImage.equals("")) return;
                         Picasso.with(rootView.getContext()).load(urlToImage).into(userImage);
                     }
                 });
@@ -162,8 +163,9 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
         byte[] dataBAOS = baos.toByteArray();
 
         /***************** UPLOADS THE PIC TO FIREBASE*****************/
-        StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://waroll-48897.appspot.com");
-        StorageReference imagesRef = storageRef.child("userImages");
+        StorageReference storageRef = FirebaseStorage.getInstance().
+                getReferenceFromUrl("gs://waroll-48897.appspot.com/userImages/");
+        StorageReference imagesRef = storageRef.child("1");
 
         UploadTask uploadTask = imagesRef.putBytes(dataBAOS);
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -183,6 +185,18 @@ public class Reg2Fragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    @Override
+    public void onStop(){
+        //EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Override
+    public void onStart() {
+        //EventBus.getDefault().register(this);
+        super.onStart();
+
+    }
 
 
 }

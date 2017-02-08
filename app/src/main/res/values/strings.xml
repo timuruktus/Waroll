@@ -31,6 +31,9 @@
     <string name="reg_1_login_hint">Можете использовать любой язык*</string>
     {REG 1 ERRORS}
     <string name="reg_1_pass_error">Вы ввели неподходящий пароль</string>
+    <string name="reg_1_empty_error">Заполните все поля</string>
+    <string name="reg_1_login_exists_error">Извините, такой логин уже занят</string>
+    <string name="reg_1_email_error">Неверная почта</string>
 
     // [FOR REG 2 FRAGMENT]
     <string name="reg_2_choose">Выбрать картинку</string>
